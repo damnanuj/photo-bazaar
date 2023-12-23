@@ -1,24 +1,28 @@
 
 
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import axios from "axios";
 
-const ImageSearch = ()=>{
-
+const ImageSearch = ({setImages}) => {
     const [searchItem , setSearchItem] = useState("")
-    const [images, setImages] = useState([])
 
-    async function fetchImages(e){
-        e.preventDefault();
+    useEffect (()=>{
+        fetchImages(null , "random")   //first param null to =>e
+    },[])
+
+    async function fetchImages(e , initialInput){
+        if(e){
+            e.preventDefault()
+        }
+
         try{
                 const response = await axios.get("https://api.unsplash.com/search/photos", {
                 headers :{
                     "Accept-Version": "v1",
                     "Authorization": "Client-ID 2FYAOaJE5N6fCwgL5proDgq2NgqoZ0R2LaBmCiRRJEM"
-        
                 },
                 params:{
-                    query: searchItem
+                    query: searchItem || initialInput
                 }
             })
             console.log(response.data.results);
@@ -26,12 +30,8 @@ const ImageSearch = ()=>{
         }
         catch(error){
             console.log(error);
-        }   
-       
+        }    
     }
-
-
-
     return (
         <div>
             <form onSubmit={fetchImages}>

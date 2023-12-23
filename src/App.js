@@ -1,13 +1,17 @@
 
 
-import React from "react";
+import React,{useState} from "react";
 import ImageSearch from "./components/ImageSearch";
-
+import ImageList from "./components/ImageList";
 const App=()=> {
+
+  const [images, setImages] = useState([])
+
+
   return (
     <div>
-      <ImageSearch/>
-      {/* <ImageList/> */}
+      <ImageSearch setImages={setImages}/>
+      <ImageList images={images}/>
       
     </div>
   )
