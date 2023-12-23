@@ -2,6 +2,7 @@
 
 import React,{useEffect, useState} from "react";
 import axios from "axios";
+import logo from "../imgs/logo.png"
 
 const ImageSearch = ({setImages}) => {
     const [searchItem , setSearchItem] = useState("")
@@ -22,7 +23,7 @@ const ImageSearch = ({setImages}) => {
                     "Authorization": "Client-ID 2FYAOaJE5N6fCwgL5proDgq2NgqoZ0R2LaBmCiRRJEM"
                 },
                 params:{
-                    query: searchItem || initialInput
+                    query: searchItem //|| initialInput
                 }
             })
             console.log(response.data.results);
@@ -33,13 +34,16 @@ const ImageSearch = ({setImages}) => {
         }    
     }
     return (
-        <div>
+        <div className="homepage">
+
+            <img className="logo" src={logo} alt="logo"/>
+
             <form onSubmit={fetchImages}>
-                <input type="text" placeholder="Search your image..."
+                <input className="inputBox" type="text" placeholder="Search your image..."
                 onChange={(e)=>setSearchItem(e.target.value)}
                 value={searchItem}
                 />
-                <button type="submit">Search</button>
+                <button className="srchBtn" type="submit">Search</button>
             </form>
 
         </div>

@@ -1,0 +1,57 @@
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+    
+    
+}
+.homepage{
+    width: 100%;
+    height: 80vh;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 600px;
+}
+form{
+    width: 400px;
+    height: 50px;
+    /* background-color: rebeccapurple; */
+    position: fixed;
+    top: 50px;
+    
+}
+
+.inputBox{
+   height: 100%;
+   width: 80%;
+   border-bottom-left-radius: 10px;
+   border-top-left-radius: 10px;
+
+   border: none;
+   outline: none;
+   padding: 0 20px;
+}
+.srchBtn{
+    height: 100%;
+    width: 20%;
+    border: none;
+    outline: none;
+    background-color:#374151;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    color: gray;
+    font-size: 1rem;
+}
