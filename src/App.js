@@ -3,6 +3,7 @@
 import React,{useState} from "react";
 import ImageSearch from "./components/ImageSearch";
 import ImageList from "./components/ImageList";
+import NavBar from "./components/NavBar";
 
 const App=()=> {
 
@@ -11,7 +12,10 @@ const App=()=> {
 
   return (
     <div>
-      <ImageSearch setImages={setImages}/>
+      <div className="topBar">
+        <NavBar/>
+        <ImageSearch setImages={setImages}/>
+      </div> 
       <ImageList images={images}/>
       
     </div>

@@ -34,9 +34,7 @@ const ImageSearch = ({setImages}) => {
         }    
     }
     return (
-        <div className="homepage">
-
-            <img className="logo" src={logo} alt="logo"/>
+        <div className="searchForm">
 
             <form onSubmit={fetchImages}>
                 <input className="inputBox" type="text" placeholder="Search your image..."
