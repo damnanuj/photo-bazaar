@@ -6,7 +6,7 @@ import logo from "../imgs/photBlogo.png"
 const NavBar = ()=>{
     return (
         <div className="logobar">
-            <img className="logo" src={logo}/>
+            <img className="logo" src={logo} alt="logo"/>
         </div>
     )
 }

@@ -1,5 +1,8 @@
 
 
+
+
+
 import React,{useEffect, useState} from "react";
 import axios from "axios";
 
@@ -9,6 +12,7 @@ const ImageSearch = ({setImages}) => {
     const [searchItem , setSearchItem] = useState("")
 
     useEffect (()=>{
+        
         fetchImages(null , "random")   //first param null to =>e
     },[])
 
