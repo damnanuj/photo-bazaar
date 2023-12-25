@@ -3,6 +3,8 @@
 import React,{useEffect, useState} from "react";
 import axios from "axios";
 
+// console.log(process.env.REACT_APP_UNSPLASH_ACCESS_KEY);
+
 const ImageSearch = ({setImages}) => {
     const [searchItem , setSearchItem] = useState("")
 
@@ -19,7 +21,7 @@ const ImageSearch = ({setImages}) => {
                 const response = await axios.get("https://api.unsplash.com/search/photos", {
                 headers :{
                     "Accept-Version": "v1",
-                    "Authorization": "Client-ID 2FYAOaJE5N6fCwgL5proDgq2NgqoZ0R2LaBmCiRRJEM"
+                    "Authorization": `Client-ID ${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
                 },
                 params:{
                     query: searchItem //|| initialInput
