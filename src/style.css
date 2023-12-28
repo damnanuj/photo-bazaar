@@ -36,8 +36,10 @@
   /* background-color: red; */
   text-align: center;
   display: flex;
-  justify-content: center;
+  gap: 1rem;
   align-items: center;
+  justify-content: center;
+  
 }
 form {
   width: 500px;
@@ -69,6 +71,17 @@ form {
   transition: all 0.3s ease-in-out;
 }
 
+.pagesBtn{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+  z-index: 100;
+  
+}
+
+
 
 .imagesList {
   width: 100%;
@@ -78,10 +91,11 @@ form {
   gap: 10px;
   padding: 10px;
   overflow-y: scroll;
-  position: fixed;
-  bottom: 55px;
+  position: absolute;
+  bottom: 10px;
   top: 115px;
   justify-content: center;
+  z-index: 10;
 }
 .imagesList::-webkit-scrollbar {
   display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
@@ -90,18 +104,6 @@ form {
 .imagesList > img {
   width: 100%;
   height: 100%;
-}
-.pagesBtn{
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 565px;
-  
-  justify-content: center;
-  gap: 5px;
-  /* background-color: red; */
-  width: 100%;
-  
 }
 
 .next, .back{
@@ -123,9 +125,16 @@ form {
   .imagesList {
     grid-template-columns: 1fr; 
   }
-  .pagesBtn {
-    top: 620px;
-
+  form {
+    width: 400px;
+  }
+  .inputBox {
+    width: 75%;
+    
+}
+.srchBtn {
+  height: 100%;
+  width: 28%;
 }
   
 }
@@ -137,8 +146,5 @@ form {
     form {
         width: 600px;
       }
-      .pagesBtn {
-        top: 1321px;
-    
-    }
+      
   }

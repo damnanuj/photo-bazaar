@@ -73,7 +73,7 @@ const ImageSearch = ({images, setImages, setFetchImg}) => {
             <div className="pagesBtn">
                 {/* <button className="back">Previous</button> */}
                 <button className="next"
-                   onClick={fetchImages}>Next</button>
+                   onClick={fetchImages}><i class="fa-solid fa-forward"></i></button>
             </div>
         </div>
 
