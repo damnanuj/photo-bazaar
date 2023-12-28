@@ -79,7 +79,7 @@ form {
   padding: 10px;
   overflow-y: scroll;
   position: fixed;
-  bottom: 0;
+  bottom: 55px;
   top: 115px;
   justify-content: center;
 }
@@ -95,7 +95,8 @@ form {
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  top: 565px;
+  
   justify-content: center;
   gap: 5px;
   /* background-color: red; */
@@ -122,6 +123,10 @@ form {
   .imagesList {
     grid-template-columns: 1fr; 
   }
+  .pagesBtn {
+    top: 882px;
+
+}
   
 }
 /* Tablet */
@@ -132,4 +137,8 @@ form {
     form {
         width: 600px;
       }
+      .pagesBtn {
+        top: 1321px;
+    
+    }
   }

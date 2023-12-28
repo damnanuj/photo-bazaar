@@ -8,14 +8,14 @@ import axios from "axios";
 
 // console.log(process.env.REACT_APP_UNSPLASH_ACCESS_KEY);
 
-const ImageSearch = ({images, setImages}) => {
+const ImageSearch = ({images, setImages, setFetchImg}) => {
     const [searchItem , setSearchItem] = useState("")
     const [page, setPage] = useState(1);
 
-    // useEffect (()=>{
+    useEffect (()=>{
         
-    //     fetchImages(null , "cats")   //first param null to =>e
-    // },[])
+        fetchImages()   //first param null to =>e
+    },[])
 
     useEffect(()=>{
         setPage(1)
@@ -35,21 +35,25 @@ const ImageSearch = ({images, setImages}) => {
                     "Authorization": `Client-ID ${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
                 },
                 params:{
-                    query: searchItem, //|| initialInput,
-                    per_page : 5,
+                    query: searchItem || "cats",
+                    per_page : 8,
                     page : page
                 }
             })
             // console.log(response.data.results);
             if(flag ==="submit"){
                 setImages(response.data.results)
+                // setPage(page+1)
             }
             else{
             // setImages(response.data.results)
                 setImages([...images , ...response.data.results])
-                setPage(page+1)
+                // setPage(page+1)
             }
+            setPage(page+1)
         }
+
+
         catch(error){
             console.log(error);
         }    
@@ -67,7 +71,7 @@ const ImageSearch = ({images, setImages}) => {
             </form>
 
             <div className="pagesBtn">
-                <button className="back">Previous</button>
+                {/* <button className="back">Previous</button> */}
                 <button className="next"
                    onClick={fetchImages}>Next</button>
             </div>
