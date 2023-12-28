@@ -1,9 +1,17 @@
-const ImageList = ({ images }) => {
+
+
+
+
+import React from "react";
+
+const ImageList = ({images}) => {
   return (
     <div className="imagesList">
-      {images.map((item) => (
+      {
+      images.map((item) => (
         <img src={item.urls.thumb} alt={item.alt_description} />
-      ))}
+      ))
+      }
     </div>
   );
 };

@@ -68,9 +68,7 @@ form {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.srchBtn:hover {
-  background-color: #e33e33;
-}
+
 
 .imagesList {
   width: 100%;
@@ -92,6 +90,32 @@ form {
 .imagesList > img {
   width: 100%;
   height: 100%;
+}
+.pagesBtn{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+  gap: 5px;
+  /* background-color: red; */
+  width: 100%;
+  
+}
+
+.next, .back{
+  padding: 10px 20px;
+  background-color: #ea6b62;
+  color: white;
+  border-radius: 5px;
+  
+  border: none;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.srchBtn:hover, .next:hover,.back:hover  {
+  background-color: #e33e33;
 }
 /* Mobile */
 @media (max-width: 600px) {

@@ -8,19 +8,26 @@ import axios from "axios";
 
 // console.log(process.env.REACT_APP_UNSPLASH_ACCESS_KEY);
 
-const ImageSearch = ({setImages}) => {
+const ImageSearch = ({images, setImages}) => {
     const [searchItem , setSearchItem] = useState("")
+    const [page, setPage] = useState(1);
 
-    useEffect (()=>{
+    // useEffect (()=>{
         
-        fetchImages(null , "random")   //first param null to =>e
-    },[])
+    //     fetchImages(null , "cats")   //first param null to =>e
+    // },[])
 
-    async function fetchImages(e , initialInput){
+    useEffect(()=>{
+        setPage(1)
+    },[searchItem])    //making the page 1 again if new search
+
+    async function fetchImages(e , flag){
+        console.log(e)
+        console.log(flag);
+        // console.log(initialInput);
         if(e){
             e.preventDefault()
         }
-
         try{
                 const response = await axios.get("https://api.unsplash.com/search/photos", {
                 headers :{
@@ -28,20 +35,30 @@ const ImageSearch = ({setImages}) => {
                     "Authorization": `Client-ID ${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
                 },
                 params:{
-                    query: searchItem //|| initialInput
+                    query: searchItem, //|| initialInput,
+                    per_page : 5,
+                    page : page
                 }
             })
-            console.log(response.data.results);
-            setImages(response.data.results)
+            // console.log(response.data.results);
+            if(flag ==="submit"){
+                setImages(response.data.results)
+            }
+            else{
+            // setImages(response.data.results)
+                setImages([...images , ...response.data.results])
+                setPage(page+1)
+            }
         }
         catch(error){
             console.log(error);
         }    
     }
     return (
+        
         <div className="searchForm">
 
-            <form onSubmit={fetchImages}>
+            <form onSubmit={(e)=>fetchImages(e, "submit")}>
                 <input className="inputBox" type="text" placeholder="Search your image..."
                 onChange={(e)=>setSearchItem(e.target.value)}
                 value={searchItem}
@@ -49,7 +66,14 @@ const ImageSearch = ({setImages}) => {
                 <button className="srchBtn" type="submit">Search</button>
             </form>
 
+            <div className="pagesBtn">
+                <button className="back">Previous</button>
+                <button className="next"
+                   onClick={fetchImages}>Next</button>
+            </div>
         </div>
+
+        
     )
 }
 
