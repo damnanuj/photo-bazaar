@@ -35,7 +35,7 @@ const ImageSearch = ({images, setImages, setFetchImg}) => {
                     "Authorization": `Client-ID ${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
                 },
                 params:{
-                    query: searchItem || "cats",
+                    query: searchItem || "random",
                     per_page : 8,
                     page : page
                 }
