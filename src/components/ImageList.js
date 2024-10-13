@@ -9,7 +9,7 @@ const ImageList = ({images}) => {
     <div className="imagesList">
       {
       images.map((item) => (
-        <img src={item.urls.thumb} alt={item.alt_description} />
+        <img src={item.urls.regular} alt={item.alt_description} />
       ))
       }
     </div>
